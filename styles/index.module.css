@@ -1,0 +1,32 @@
+.userContent {
+  display: flex;
+  justify-content: space-between;
+  color: var(--primary-color);
+}
+
+.userContent h2 {
+  font-size: 1rem;
+  margin: 0rem;
+
+  font-weight: 400;
+}
+
+.userImage {
+  display: flex;
+  background-color: #e0e0e0;
+  color: black;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.userImage img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.userImage span {
+  /* top | right | bottom | left */
+  padding: 0rem 0.5rem;
+  font-weight: bold;
+}
