@@ -2,6 +2,7 @@ import React from "react";
 import Center from "./Center";
 import styled from "styled-components";
 import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 
 const Bg = styled.div`
     background-color: #222;
@@ -11,7 +12,7 @@ const Bg = styled.div`
 
 const CulumnsWrapper = styled.div`
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
     img {
         max-width: 100%;
@@ -41,25 +42,28 @@ const Description = styled.p`
     font-size: 0.8rem;
 `;
 
-const Featured = () => {
+const Featured = ({ featuredProduct }) => {
+    const featuredProductObj = JSON.parse(featuredProduct);
+    console.log(featuredProductObj);
     return (
         <Bg>
             <Center>
                 <CulumnsWrapper>
                     <Column>
                         <div>
-                            <Title>Pro anywhere</Title>
+                            <Title>{featuredProductObj.title}</Title>
                             <Description>
-                                Lorem Ipsum is simply dummy text of the printing
-                                and typesetting industry. Lorem Ipsum has been
-                                the industry's standard dummy text ever since
-                                the 1500s,
+                                {featuredProductObj.description} <br />,
                             </Description>
                             <ButtonsWrapper>
-                                <Button outline secondary>
+                                <ButtonLink
+                                    outline={1}
+                                    secondary={1}
+                                    href={"/products/" + featuredProductObj._id}
+                                >
                                     Read more
-                                </Button>
-                                <Button primary>
+                                </ButtonLink>
+                                <Button primary={1}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"

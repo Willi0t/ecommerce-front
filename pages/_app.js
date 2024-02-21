@@ -4,12 +4,13 @@ const GlobalStyles = createGlobalStyle`
 
 :root {
       --primary-color: #5b49ff;
-      --bg-grey: #eeeeee;
+      --bg-grey: #eee;
       --blue-900: #0d47a1;
       --purple-custom:#5542f6
   }
 
 body{
+    background-color: var(--bg-grey);
     padding:0;
     margin: 0;
     font-family: "Roboto", sans-serif;

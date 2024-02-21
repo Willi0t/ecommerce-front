@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.button`
+export const ButtonStyle = css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,6 +9,7 @@ const StyledButton = styled.button`
     padding: 5px 15px;
     border-radius: 5px;
     font-size: 0.8rem;
+    text-decoration: none;
     cursor: pointer;
     svg {
         height: 0.8rem;
@@ -27,15 +28,15 @@ const StyledButton = styled.button`
         `}
 
     ${(props) =>
-        props.primary &&
+        props.primary === 1 &&
         css`
             background-color: var(--purple-custom);
             color: #fff;
             border: 1px solid var(--purple-custom);
         `}
 
-        ${(props) =>
-        props.secondary &&
+    ${(props) =>
+        props.secondary === 1 &&
         !props.outline &&
         css`
             background-color: #fff;
@@ -43,14 +44,18 @@ const StyledButton = styled.button`
             border: 1px solid #fff;
         `}
 
-        ${(props) =>
-        props.secondary &&
+    ${(props) =>
+        props.secondary === 1 &&
         props.outline &&
         css`
             background-color: transparent;
             color: #fff;
             border: 1px solid white;
         `}
+`;
+
+const StyledButton = styled.button`
+    ${ButtonStyle}
 `;
 
 const Button = ({ children, ...rest }) => {
