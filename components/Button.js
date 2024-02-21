@@ -3,18 +3,21 @@ import styled, { css } from "styled-components";
 
 export const ButtonStyle = css`
     display: flex;
-    align-items: center;
-    justify-content: center;
     border: 0;
     padding: 5px 15px;
     border-radius: 5px;
     font-size: 0.8rem;
+    font-weight: 500;
+    font-family: inherit;
     text-decoration: none;
     cursor: pointer;
     svg {
         height: 0.8rem;
-        // top, right, bottom, left
-        margin: 0 5px 0 0;
+        ${(props) =>
+            props.margin &&
+            css`
+                margin: ${props.margin};
+            `}
     }
 
     ${(props) =>
@@ -29,9 +32,19 @@ export const ButtonStyle = css`
 
     ${(props) =>
         props.primary === 1 &&
+        !props.outline &&
         css`
             background-color: var(--purple-custom);
             color: #fff;
+            border: 1px solid var(--purple-custom);
+        `}
+
+        ${(props) =>
+        props.primary === 1 &&
+        props.outline === 1 &&
+        css`
+            background-color: transparent;
+            color: var(--purple-custom);
             border: 1px solid var(--purple-custom);
         `}
 
