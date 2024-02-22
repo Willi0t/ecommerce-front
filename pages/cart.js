@@ -40,23 +40,36 @@ const cart = () => {
             <Center>
                 <ColWrapper>
                     <Box>
+                        <h2>Cart</h2>
                         {!cartProducts?.length && (
                             <div> your cart is empty</div>
                         )}
-                        {cartProducts?.length > 0 && (
-                            <>
-                                <h2>Cart</h2>
-                                {products.map((products) => (
-                                    <div>
-                                        {products.title} :
-                                        {
-                                            cartProducts.filter(
-                                                (id) => id === products._id
-                                            ).length
-                                        }
-                                    </div>
-                                ))}
-                            </>
+                        {products?.length > 0 && (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products.map((products) => (
+                                        <tr>
+                                            <td>{products.title}</td> :
+                                            <td>
+                                                {
+                                                    cartProducts.filter(
+                                                        (id) =>
+                                                            id === products._id
+                                                    ).length
+                                                }
+                                            </td>
+                                            <td>price</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         )}
                     </Box>
                     {!!cartProducts?.length && (
