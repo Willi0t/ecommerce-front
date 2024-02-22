@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 export const ButtonStyle = css`
     display: flex;
+    align-items: center;
     border: 0;
     padding: 5px 15px;
     border-radius: 5px;
@@ -11,17 +12,18 @@ export const ButtonStyle = css`
     font-family: inherit;
     text-decoration: none;
     cursor: pointer;
+
     svg {
         height: 0.8rem;
         ${(props) =>
-            props.margin &&
+            props.$margin &&
             css`
-                margin: ${props.margin};
+                margin: ${props.$margin};
             `}
     }
 
     ${(props) =>
-        props.size === "l" &&
+        props.$size === "l" &&
         css`
             font-size: 1.2rem;
             padding: 10px 20px;
@@ -31,17 +33,17 @@ export const ButtonStyle = css`
         `}
 
     ${(props) =>
-        props.primary === 1 &&
-        !props.outline &&
+        props.$primary &&
+        !props.$outline &&
         css`
             background-color: var(--purple-custom);
             color: #fff;
             border: 1px solid var(--purple-custom);
         `}
 
-        ${(props) =>
-        props.primary === 1 &&
-        props.outline === 1 &&
+    ${(props) =>
+        props.$primary &&
+        props.$outline &&
         css`
             background-color: transparent;
             color: var(--purple-custom);
@@ -49,8 +51,8 @@ export const ButtonStyle = css`
         `}
 
     ${(props) =>
-        props.secondary === 1 &&
-        !props.outline &&
+        props.$secondary &&
+        !props.$outline &&
         css`
             background-color: #fff;
             color: #000;
@@ -58,8 +60,8 @@ export const ButtonStyle = css`
         `}
 
     ${(props) =>
-        props.secondary === 1 &&
-        props.outline &&
+        props.$secondary &&
+        props.$outline &&
         css`
             background-color: transparent;
             color: #fff;

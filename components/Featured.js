@@ -58,13 +58,13 @@ const Featured = ({ featuredProduct }) => {
                             </Description>
                             <ButtonsWrapper>
                                 <ButtonLink
-                                    outline={1}
-                                    secondary={1}
+                                    $outline
+                                    $secondary
                                     href={"/products/" + featuredProductObj._id}
                                 >
                                     Read more
                                 </ButtonLink>
-                                <Button secondary={1} margin="0 5px 0 0">
+                                <Button $secondary $margin="0 5px 0 0">
                                     <CartIconSolid />
                                     Add to cart
                                 </Button>

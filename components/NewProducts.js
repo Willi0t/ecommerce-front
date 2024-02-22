@@ -8,7 +8,15 @@ const ProductsGrid = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
     //top right bottom left
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
+`;
+
+const Title = styled.h2`
+    font-weight: normal;
+    margin: 0;
+    font-size: 2rem;
+    //top right bottom left
+    margin: 20px 0 0 0;
 `;
 
 const NewProducts = ({ products }) => {
@@ -17,6 +25,7 @@ const NewProducts = ({ products }) => {
     return (
         <div>
             <Center>
+                <Title>New Arivals</Title>
                 <ProductsGrid>
                     {newProductObj?.length > 0 &&
                         newProductObj.map((product) => (
