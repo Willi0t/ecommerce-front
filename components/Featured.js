@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Center from "./Center";
 import styled from "styled-components";
 import Button from "./Button";
 import ButtonLink from "./ButtonLink";
-import CartIconhollow from "@/assets/icons/CartIconhollow ";
 import CartIconSolid from "@/assets/icons/CartIconSolid";
+import { CartContext } from "./CartContext";
 
 const Bg = styled.div`
     background-color: #222;
@@ -46,6 +46,13 @@ const Description = styled.p`
 
 const Featured = ({ featuredProduct }) => {
     const featuredProductObj = JSON.parse(featuredProduct);
+
+    const { addProduct } = useContext(CartContext);
+
+    const addFeaturedToCart = () => {
+        addProduct(featuredProductObj._id);
+    };
+
     return (
         <Bg>
             <Center>
@@ -64,7 +71,11 @@ const Featured = ({ featuredProduct }) => {
                                 >
                                     Read more
                                 </ButtonLink>
-                                <Button $secondary $margin="0 5px 0 0">
+                                <Button
+                                    $secondary
+                                    $margin="0 5px 0 0"
+                                    onClick={addFeaturedToCart}
+                                >
                                     <CartIconSolid />
                                     Add to cart
                                 </Button>

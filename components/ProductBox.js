@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Button from "./Button";
-import CartIconSolid from "@/assets/icons/CartIconSolid";
 import Link from "next/link";
+import { CartContext } from "./CartContext";
 
 const ProductWrapper = styled.div`
     // top, right, bottom, left
@@ -50,6 +50,8 @@ const Price = styled.div`
 `;
 
 const ProductBox = ({ _id, title, description, price, images }) => {
+    const { addProduct } = useContext(CartContext);
+
     const url = "/product" + _id;
     return (
         <ProductWrapper>
@@ -62,7 +64,12 @@ const ProductBox = ({ _id, title, description, price, images }) => {
                 <Title href={url}>{title}</Title>
                 <PriceBox>
                     <Price>${price}</Price>
-                    <Button $primary $outline $margin="0 5px 0px 0">
+                    <Button
+                        $primary
+                        $outline
+                        $margin="0 5px 0px 0"
+                        onClick={() => addProduct(_id)}
+                    >
                         add to cart
                     </Button>
                 </PriceBox>

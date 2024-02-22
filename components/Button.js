@@ -11,6 +11,12 @@ export const ButtonStyle = css`
     font-weight: 500;
     font-family: inherit;
     text-decoration: none;
+    ${(props) =>
+        props.$backgroundColor &&
+        css`
+            background-color: ${props.$backgroundColor} !important;
+            border: 1px solid ${props.$backgroundColor} !important;
+        `}
     cursor: pointer;
 
     svg {
@@ -39,6 +45,13 @@ export const ButtonStyle = css`
             background-color: var(--purple-custom);
             color: #fff;
             border: 1px solid var(--purple-custom);
+        `}
+
+    ${(props) =>
+        props.$block &&
+        css`
+            display: block;
+            width: 100%;
         `}
 
     ${(props) =>
