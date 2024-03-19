@@ -57,7 +57,8 @@ const CityBox = styled.div`
 `;
 
 const cart = () => {
-    const { cartProducts, addProduct, removeProduct } = useContext(CartContext);
+    const { cartProducts, addProduct, removeProduct, clearCart } =
+        useContext(CartContext);
     const [products, setProducts] = useState([]);
     const [name, setName] = useState([]);
     const [streetAddress, setStreetAddress] = useState("");
@@ -65,6 +66,7 @@ const cart = () => {
     const [postCode, setPostCode] = useState("");
     const [country, setCountry] = useState("");
     const [email, setEmail] = useState("");
+    const [isSuccess, setIsSuccess] = useState(false);
 
     useEffect(() => {
         if (cartProducts.length > 0) {
@@ -76,6 +78,15 @@ const cart = () => {
         }
     }, [cartProducts]);
 
+    useEffect(() => {
+        if (
+            typeof window !== "undefined" &&
+            window.location.href.includes("success")
+        ) {
+            setIsSuccess(true);
+            clearCart();
+        }
+    }, []);
     const addAdditionalProduct = (id) => {
         addProduct(id);
     };
@@ -106,23 +117,29 @@ const cart = () => {
         total += price;
     }
 
-    if (window.location.href.includes("success")) {
-        <>
-            <Header />
-            <Center>
-                <Box>
-                    <h2>
-                        [customer's name], Thank you for placing an order with
-                        [your company name].
-                    </h2>
-                    <p>
-                        We are pleased to confirm the receipt of your order #
-                        [order number], dated [order date]. Your order is now
-                        being processed and we will ensure its prompt dispatch.
-                    </p>
-                </Box>
-            </Center>
-        </>;
+    if (isSuccess) {
+        return (
+            <>
+                <Header />
+
+                <Center>
+                    <ColWrapper>
+                        <Box>
+                            <h2>
+                                [customer's name], Thank you for placing an
+                                order with [your company name].
+                            </h2>
+                            <p>
+                                We are pleased to confirm the receipt of your
+                                order # [order number], dated [order date]. Your
+                                order is now being processed and we will ensure
+                                its prompt dispatch.
+                            </p>
+                        </Box>
+                    </ColWrapper>
+                </Center>
+            </>
+        );
     }
 
     return (
