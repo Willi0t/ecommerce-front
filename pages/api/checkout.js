@@ -4,7 +4,6 @@ import { Order } from "@/models/Order";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 const handler = async (req, res) => {
-    console.log("req.body:", req.body);
     if (req.method !== "POST") {
         res.json("should be a post request");
         return;
