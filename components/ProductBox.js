@@ -57,7 +57,7 @@ const ProductBox = ({ _id, title, description, price, images }) => {
         <ProductWrapper>
             <ProductContainer href={url}>
                 <div>
-                    <img src={images[0]} alt=""></img>
+                    <img src={images?.[0]} alt=""></img>
                 </div>
             </ProductContainer>
             <ProductInfoBox>
