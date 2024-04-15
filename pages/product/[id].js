@@ -6,6 +6,7 @@ import React from "react";
 import { mongooseConnect } from "@/lib/mongoose";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
+import ProductImages from "@/components/ProductImages";
 
 const ColWrapper = styled.div`
     display: grid;
@@ -23,7 +24,9 @@ const ProductPage = ({ product }) => {
             <Header />
             <Center>
                 <ColWrapper>
-                    <WhiteBox>image</WhiteBox>
+                    <WhiteBox>
+                        <ProductImages images={product.images} />
+                    </WhiteBox>
                     <div>
                         <Title>{product.title}</Title>
                     </div>
