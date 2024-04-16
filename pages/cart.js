@@ -68,6 +68,8 @@ const cart = () => {
     const [email, setEmail] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
+    console.log(products);
+
     useEffect(() => {
         if (cartProducts.length > 0) {
             axios.post("/api/cart", { ids: cartProducts }).then((response) => {
@@ -163,7 +165,7 @@ const cart = () => {
                                 </thead>
                                 <tbody>
                                     {products.map((products) => (
-                                        <tr>
+                                        <tr key={products._id}>
                                             <ProductInfoCell>
                                                 <ProductImageBox>
                                                     <img

@@ -27,6 +27,7 @@ const ImageGallery = styled.div`
 `;
 
 const ImageButtons = styled.button`
+    ${(props) => (props.active ? `opacity: 1;` : `opacity: 0.8;`)}
     max-height: 100%;
     max-width: 100%;
     padding: 5px;
@@ -46,7 +47,7 @@ const ProductImages = ({ images }) => {
                 {images.map((image) => (
                     <ImageButtons
                         key={image}
-                        active={image === activeImage}
+                        $active={image === activeImage}
                         onClick={() => setActiveImage(image)}
                     >
                         <GalleryImages src={image} alt="" />

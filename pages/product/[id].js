@@ -7,6 +7,9 @@ import { mongooseConnect } from "@/lib/mongoose";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
 import ProductImages from "@/components/ProductImages";
+import Button from "@/components/Button";
+import { CartContext } from "@/components/CartContext";
+import { useContext } from "react";
 
 const ColWrapper = styled.div`
     display: grid;
@@ -18,7 +21,18 @@ const ColWrapper = styled.div`
     margin: 40px 0;
 `;
 
+const PriceRow = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+`;
+
+const PriceText = styled.span`
+    font-size: 1.5rem;
+`;
+
 const ProductPage = ({ product }) => {
+    const { addProduct } = useContext(CartContext);
     return (
         <>
             <Header />
@@ -29,6 +43,20 @@ const ProductPage = ({ product }) => {
                     </WhiteBox>
                     <div>
                         <Title>{product.title}</Title>
+                        <p>{product.description}</p>
+                        <PriceRow>
+                            <div>
+                                <PriceText>${product.price}</PriceText>
+                            </div>
+
+                            <Button
+                                $primary
+                                $margin="0 5px 0px 0"
+                                onClick={() => addProduct(product._id)}
+                            >
+                                add to cart
+                            </Button>
+                        </PriceRow>
                     </div>
                 </ColWrapper>
             </Center>
