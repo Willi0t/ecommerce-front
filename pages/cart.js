@@ -10,10 +10,13 @@ import Input from "@/components/Input";
 
 const ColWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr;
     gap: 40px;
     //top right bottom left
     margin: 40px 0 0 0;
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
 `;
 
 const Box = styled.div`

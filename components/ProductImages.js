@@ -2,13 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 const FeaturedImage = styled.img`
-    height: 180px;
+    height: 130px;
     max-width: 100%;
+    @media screen and (min-width: 768px) {
+        height: 180px;
+        max-width: 100%;
+    }
 `;
 
 const GalleryImages = styled.img`
     max-height: 50px;
-    max-width: 70px;
+    max-width: 60px;
+    @media screen and (min-width: 768px) {
+        max-height: 60px;
+        max-width: 84px;
+    }
 `;
 
 const FeaturedImageWrapper = styled.div`
@@ -27,7 +35,7 @@ const ImageGallery = styled.div`
 `;
 
 const ImageButtons = styled.button`
-    ${(props) => (props.active ? `opacity: 1;` : `opacity: 0.8;`)}
+    ${(props) => (props.$active ? `opacity: 1;` : `opacity: 0.8;`)}
     max-height: 100%;
     max-width: 100%;
     padding: 5px;

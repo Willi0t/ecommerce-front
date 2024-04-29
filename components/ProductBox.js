@@ -39,17 +39,25 @@ const ProductInfoBox = styled.div`
 
 const PriceBox = styled.div`
     display: flex;
-    align-items: center;
     justify-content: space-between;
     margin: 2px 0 0 0;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        margin: 2px 0 0 0;
+    }
 `;
 
 const Price = styled.div`
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
+    @media screen and (min-width: 768px) {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
 `;
 
-const ProductBox = ({ _id, title, description, price, images }) => {
+const ProductBox = ({ _id, title, price, images }) => {
     const { addProduct } = useContext(CartContext);
 
     const url = "/product/" + _id;

@@ -11,20 +11,41 @@ import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import { useContext } from "react";
 
+const DescriptionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+    @media screen and (min-width: 768px) {
+        width: 540px;
+        padding: 0px 50px 0px 50px;
+    }
+`;
+
+const ItemDescription = styled.p`
+    width: 100%;
+    height: auto;
+    font-size: 0.9rem;
+`;
+
 const ColWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
     @media screen and (min-width: 768px) {
         grid-template-columns: 0.8fr 1.2fr;
+        gap: 40px;
     }
-    gap: 40px;
-    margin: 40px 0;
 `;
 
 const PriceRow = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+    @media screen and (min-width: 768px) {
+        margin-top: 10px;
+    }
 `;
 
 const PriceText = styled.span`
@@ -36,30 +57,28 @@ const ProductPage = ({ product }) => {
     return (
         <>
             <Header />
-            <Center>
-                <ColWrapper>
-                    <WhiteBox>
-                        <ProductImages images={product.images} />
-                    </WhiteBox>
-                    <div>
-                        <Title>{product.title}</Title>
-                        <p>{product.description}</p>
-                        <PriceRow>
-                            <div>
-                                <PriceText>${product.price}</PriceText>
-                            </div>
+            <ColWrapper>
+                <WhiteBox>
+                    <ProductImages images={product.images} />
+                </WhiteBox>
+                <DescriptionContainer>
+                    <Title>{product.title}</Title>
+                    <ItemDescription>{product.description}</ItemDescription>
+                    <PriceRow>
+                        <div>
+                            <PriceText>${product.price}</PriceText>
+                        </div>
 
-                            <Button
-                                $primary
-                                $margin="0 5px 0px 0"
-                                onClick={() => addProduct(product._id)}
-                            >
-                                add to cart
-                            </Button>
-                        </PriceRow>
-                    </div>
-                </ColWrapper>
-            </Center>
+                        <Button
+                            $primary
+                            $margin="0 5px 0px 0"
+                            onClick={() => addProduct(product._id)}
+                        >
+                            add to cart
+                        </Button>
+                    </PriceRow>
+                </DescriptionContainer>
+            </ColWrapper>
         </>
     );
 };

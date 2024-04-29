@@ -5,12 +5,16 @@ export const ButtonStyle = css`
     display: flex;
     align-items: center;
     border: 0;
-    padding: 5px 15px;
+    padding: 3px 8px;
     border-radius: 5px;
     font-size: 0.8rem;
     font-weight: 500;
     font-family: inherit;
     text-decoration: none;
+    @media screen and (min-width: 768px) {
+        padding: 5px 15px;
+    }
+
     ${(props) =>
         props.$backgroundColor &&
         css`
