@@ -12,7 +12,6 @@ const ColWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-    //top right bottom left
     margin: 40px 0 0 0;
     @media screen and (min-width: 768px) {
         grid-template-columns: 1.2fr 0.8fr;
@@ -59,19 +58,25 @@ const CityBox = styled.div`
     gap: 5px;
 `;
 
+const StyledParagraph = styled.p`
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 20px;
+`;
+
 const Cart = () => {
     const { cartProducts, addProduct, removeProduct, clearCart } =
         useContext(CartContext);
     const [products, setProducts] = useState([]);
-    const [name, setName] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [name, setName] = useState("");
     const [streetAddress, setStreetAddress] = useState("");
     const [city, setCity] = useState("");
     const [postCode, setPostCode] = useState("");
     const [country, setCountry] = useState("");
     const [email, setEmail] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
-
-    console.log(products);
 
     useEffect(() => {
         if (cartProducts.length > 0) {
@@ -90,8 +95,12 @@ const Cart = () => {
         ) {
             setIsSuccess(true);
             clearCart();
+            axios.get("/api/orders").then((response) => {
+                setOrders(response.data);
+            });
         }
     }, []);
+
     const addAdditionalProduct = (id) => {
         addProduct(id);
     };
@@ -122,24 +131,38 @@ const Cart = () => {
         total += price;
     }
 
+    const latestOrder = orders[0] || {}; // Assuming the latest order is the first in the array
+    const firstName = latestOrder?.name.split(" ")[0];
+
+    console.log(orders, "orders");
+
     if (isSuccess) {
         return (
             <>
                 <Header />
-
                 <Center>
                     <ColWrapper>
                         <Box>
-                            <h2>
-                                [customer's name], Thank you for placing an
-                                order with [your company name].
-                            </h2>
-                            <p>
-                                We are pleased to confirm the receipt of your
-                                order # [order number], dated [order date]. Your
-                                order is now being processed and we will ensure
-                                its prompt dispatch.
-                            </p>
+                            <StyledParagraph>
+                                thank you <strong>{firstName}</strong>, for
+                                placing an order with us.
+                                <br />
+                                <br />
+                                <span>
+                                    We are pleased to confirm the receipt of
+                                    your order with ID #{latestOrder?._id}, on{" "}
+                                    {new Date(
+                                        latestOrder?.createdAt
+                                    ).toLocaleDateString()}
+                                    .
+                                </span>
+                                <br />
+                                <br />
+                                <span>
+                                    Your order is now being processed and we
+                                    will ensure its prompt dispatch.
+                                </span>
+                            </StyledParagraph>
                         </Box>
                     </ColWrapper>
                 </Center>
@@ -154,10 +177,8 @@ const Cart = () => {
                 <ColWrapper>
                     <Box>
                         <h2>Cart</h2>
-                        {!cartProducts?.length && (
-                            <div> your cart is empty</div>
-                        )}
-                        {products?.length > 0 && (
+                        {!cartProducts.length && <div>Your cart is empty</div>}
+                        {products.length > 0 && (
                             <Table>
                                 <thead>
                                     <tr>
@@ -167,22 +188,23 @@ const Cart = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map((products) => (
-                                        <tr key={products._id}>
+                                    {products.map((product) => (
+                                        <tr key={product._id}>
                                             <ProductInfoCell>
                                                 <ProductImageBox>
                                                     <img
-                                                        src={products.images[0]}
+                                                        src={product.images[0]}
+                                                        alt={product.title}
                                                     />
                                                 </ProductImageBox>
-                                                {products.title}
+                                                {product.title}
                                             </ProductInfoCell>
                                             <td>
                                                 <FlexCenter>
                                                     <Button
                                                         onClick={() =>
                                                             removeAdditionalProduct(
-                                                                products._id
+                                                                product._id
                                                             )
                                                         }
                                                     >
@@ -193,14 +215,14 @@ const Cart = () => {
                                                             cartProducts.filter(
                                                                 (id) =>
                                                                     id ===
-                                                                    products._id
+                                                                    product._id
                                                             ).length
                                                         }
                                                     </QuantityLabel>
                                                     <Button
                                                         onClick={() =>
                                                             addAdditionalProduct(
-                                                                products._id
+                                                                product._id
                                                             )
                                                         }
                                                     >
@@ -211,8 +233,8 @@ const Cart = () => {
                                             <td>
                                                 $
                                                 {cartProducts.filter(
-                                                    (id) => id === products._id
-                                                ).length * products.price}
+                                                    (id) => id === product._id
+                                                ).length * product.price}
                                             </td>
                                         </tr>
                                     ))}
@@ -225,26 +247,24 @@ const Cart = () => {
                             </Table>
                         )}
                     </Box>
-                    {!!cartProducts?.length && (
+                    {!!cartProducts.length && (
                         <Box>
-                            <h2>order information</h2>
+                            <h2>Order Information</h2>
                             <Input
                                 type="text"
                                 placeholder="Name"
                                 value={name}
                                 name="name"
-                                onChange={(ev) => {
-                                    setName(ev.target.value);
-                                }}
+                                onChange={(ev) => setName(ev.target.value)}
                             />
                             <Input
                                 type="text"
                                 placeholder="Street Address"
                                 value={streetAddress}
                                 name="streetAddress"
-                                onChange={(ev) => {
-                                    setStreetAddress(ev.target.value);
-                                }}
+                                onChange={(ev) =>
+                                    setStreetAddress(ev.target.value)
+                                }
                             />
                             <CityBox>
                                 <Input
@@ -252,18 +272,16 @@ const Cart = () => {
                                     placeholder="City"
                                     value={city}
                                     name="city"
-                                    onChange={(ev) => {
-                                        setCity(ev.target.value);
-                                    }}
+                                    onChange={(ev) => setCity(ev.target.value)}
                                 />
                                 <Input
                                     type="text"
                                     placeholder="Post code"
                                     value={postCode}
                                     name="postCode"
-                                    onChange={(ev) => {
-                                        setPostCode(ev.target.value);
-                                    }}
+                                    onChange={(ev) =>
+                                        setPostCode(ev.target.value)
+                                    }
                                 />
                             </CityBox>
                             <Input
@@ -271,20 +289,15 @@ const Cart = () => {
                                 placeholder="Country"
                                 value={country}
                                 name="country"
-                                onChange={(ev) => {
-                                    setCountry(ev.target.value);
-                                }}
+                                onChange={(ev) => setCountry(ev.target.value)}
                             />
                             <Input
                                 type="text"
                                 placeholder="E-mail"
                                 value={email}
                                 name="email"
-                                onChange={(ev) => {
-                                    setEmail(ev.target.value);
-                                }}
+                                onChange={(ev) => setEmail(ev.target.value)}
                             />
-
                             <input
                                 type="hidden"
                                 value={cartProducts.join(",")}
@@ -296,7 +309,7 @@ const Cart = () => {
                                 $backgroundColor="black"
                                 onClick={goToPayment}
                             >
-                                continue to payment
+                                Continue to Payment
                             </Button>
                         </Box>
                     )}

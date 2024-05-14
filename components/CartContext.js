@@ -1,35 +1,45 @@
-import React from "react";
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, useMemo } from "react";
 
 export const CartContext = createContext({});
 
 export function CartContextProvider({ children }) {
-    const ls = typeof window !== "undefined" ? window.localStorage : null;
+    const ls = useMemo(
+        () => (typeof window !== "undefined" ? window.localStorage : null),
+        []
+    );
+
     const [cartProducts, setCartProducts] = useState([]);
 
+    // Load initial cart from localStorage only on client-side
     useEffect(() => {
-        if (cartProducts?.length > 0) {
-            ls?.setItem("cart", JSON.stringify(cartProducts));
+        try {
+            const localCart = ls?.getItem("cart");
+            if (localCart) {
+                setCartProducts(JSON.parse(localCart));
+            }
+        } catch (error) {
+            console.error("Failed to load cart from local storage:", error);
         }
-    }, [cartProducts]);
+    }, [ls]);
 
     useEffect(() => {
-        if (ls && ls.getItem("cart")) {
-            setCartProducts(JSON.parse(ls.getItem("cart")));
+        try {
+            if (cartProducts.length > 0) {
+                ls?.setItem("cart", JSON.stringify(cartProducts));
+            } else {
+                ls?.removeItem("cart");
+            }
+        } catch (error) {
+            console.error("Failed to save cart to local storage:", error);
         }
-    }, []);
+    }, [cartProducts, ls]);
+
     function addProduct(productId) {
         setCartProducts((prev) => [...prev, productId]);
     }
 
     const removeProduct = (productId) => {
-        setCartProducts((prev) => {
-            const pos = prev.indexOf(productId);
-            if (pos !== -1) {
-                return prev.filter((value, index) => index !== pos);
-            }
-            return prev;
-        });
+        setCartProducts((prev) => prev.filter((id) => id !== productId));
     };
 
     function clearCart() {
@@ -40,7 +50,6 @@ export function CartContextProvider({ children }) {
         <CartContext.Provider
             value={{
                 cartProducts,
-                setCartProducts,
                 addProduct,
                 removeProduct,
                 clearCart,
