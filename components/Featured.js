@@ -100,7 +100,10 @@ const Featured = ({ featuredProduct }) => {
                         </div>
                     </Column>
                     <Column>
-                        <img src="https://149426355.v2.pressablecdn.com/wp-content/uploads/2021/10/mbp-2021-bbedit-lede.png"></img>
+                        <img
+                            src="https://149426355.v2.pressablecdn.com/wp-content/uploads/2021/10/mbp-2021-bbedit-lede.png"
+                            alt="featured image"
+                        ></img>
                     </Column>
                 </CulumnsWrapper>
             </Center>

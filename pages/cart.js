@@ -59,7 +59,7 @@ const CityBox = styled.div`
     gap: 5px;
 `;
 
-const cart = () => {
+const Cart = () => {
     const { cartProducts, addProduct, removeProduct, clearCart } =
         useContext(CartContext);
     const [products, setProducts] = useState([]);
@@ -306,4 +306,4 @@ const cart = () => {
     );
 };
 
-export default cart;
+export default Cart;
