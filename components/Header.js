@@ -40,7 +40,7 @@ const StyledNav = styled.nav`
     background-color: rgba(34, 34, 34, 0.85);
     backdrop-filter: blur(10px);
     transform: translateX(
-        ${(props) => (props.MobilenavigationActive ? "0" : "-100%")}
+        ${(props) => (props.mobileNavigationActive ? "0" : "-100%")}
     );
     transition: transform 0.3s ease-in-out;
 
@@ -68,14 +68,14 @@ const NavButton = styled.button`
 
 function Header() {
     const { cartProducts } = useContext(CartContext);
-    const [MobilenavigationActive, setMobileNavigationActive] = useState(false);
+    const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
 
     return (
         <StyledHeader>
             <Center>
                 <Wrapper>
                     <Logo href={"/"}>Ecommerce</Logo>
-                    <StyledNav MobilenavigationActive={MobilenavigationActive}>
+                    <StyledNav mobileNavigationActive={mobileNavigationActive}>
                         <NavLink href={"/"}>Home</NavLink>
                         <NavLink href={"/products"}>All Products</NavLink>
                         <NavLink href={"/categories"}>Categories</NavLink>
