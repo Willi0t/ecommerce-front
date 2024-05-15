@@ -52,12 +52,12 @@ The [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin) application, 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-
 <a href="https://nextjs.org" target="_blank">
   <img src="https://img.shields.io/badge/nextjs-white?logo=nextdotjs&color=%2341444B" alt="Next.js Badge" style="width: auto; height: 30px;">
 </a>
+
+I chose Next.js for this project because it’s a powerful framework for React that brings a lot to the table. First off, it offers server-side rendering and static site generation, which means our web pages load faster and perform better in search engine rankings.Additionally, Next.js simplifies complex tasks like routing and API handling
+
 
 </br>
 
@@ -65,17 +65,23 @@ This section should list any major frameworks/libraries used to bootstrap your p
   <img src="https://img.shields.io/badge/stripe-white?logo=stripe&color=%23bae1ff" alt="Stripe Badge" style="width: auto; height: 30px;">
 </a>
 
+For handling payments, I went with Stripe. It’s known for its security and reliability, which is essential for managing transactions. Integrating Stripe is straightforward thanks to its well-documented API. It supports a wide range of payment methods and currencies, making it versatile for different users. Whether we’re dealing with small or large transactions, Stripe scales effortlessly, ensuring we can handle any volume of payments smoothly.
+
 </br>
 
 <a href="https://www.mongodb.com" target="_blank">
   <img src="https://img.shields.io/badge/MongoDB-white?logo=mongodb&color=%23a8dea0" alt="MongoDB Badge" style="width: auto; height: 30px;">
 </a>
 
+When it came to choosing a database, MongoDB was the clear choice. Its schema-less design means we can iterate quickly and adapt our data model as needed without a lot of hassle. MongoDB excels at handling large amounts of data and traffic, which is great for scalability. It’s also very developer-friendly, with simple queries and efficient data retrieval. This means we can focus more on building features rather than managing database constraints.
+
 </br>
 
 <a href="https://styled-components.com" target="_blank">
   <img src="https://img.shields.io/badge/Styled%20Components-white?logo=styledcomponents&color=%23ffdfba" alt="Styled Components Badge" style="width: auto; height: 30px;">
 </a>
+
+For styling, I opted for Styled Components. This library lets us write CSS directly within our JavaScript, making it easy to scope styles to individual components. This approach keeps our styling modular and reusable, which is great for maintaining the codebase. Styled Components also support theming and dynamic styling, allowing us to create a more cohesive and adaptable design system. The developer experience is fantastic too, with features like auto-completion and syntax highlighting in modern IDEs.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
