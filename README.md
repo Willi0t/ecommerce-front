@@ -33,21 +33,20 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project!
+![e-commerce-snippet](https://github.com/Willi0t/ecommerce-front/assets/113394429/33ca9fba-046e-4be2-b3a0-985abffa6bce)
 
-
-[e-commerce-snippet](https://github.com/Willi0t/ecommerce-front/assets/113394429/e2aca3de-32a2-4605-bbca-616c9607e876)
-
-This e-commerce project consists of two separate applications: E-commerce Front and E-commerce Admin. The store offers a simplified tech shop experience, featuring a variety of merchandise including phones, tablets, and laptops. The front end of the store is built using Next.js and showcases products with a user-friendly interface, utilizing Styled Components to demonstrate different styling approaches. The store includes a fully functional payment system powered by Stripe, ensuring secure and seamless transactions.
+This e-commerce project consists of two separate applications: [E-commerce Front](https://github.com/Willi0t/ecommerce-front) and [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin). The store offers a simplified tech shop experience, featuring a variety of merchandise including phones, tablets, and laptops. The front end of the store is built using Next.js and showcases products with a user-friendly interface, utilizing Styled Components to demonstrate different styling approaches. The store includes a fully functional payment system powered by Stripe, ensuring secure and seamless transactions.
 
 When testing the payment and order system, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
 
-Use a valid future date, such as 12/34.
-Use any three-digit CVC (four digits for American Express cards).
-Use any value you like for other form fields
+- Use a valid future date, such as 12/34.
+- Use any three-digit CVC (four digits for American Express cards).
+- Use any value you like for other form fields.
 
-https://docs.stripe.com/testing
+[Stripe Testing Documentation](https://docs.stripe.com/testing)
 
-The E-commerce Admin application, also built with Next.js, provides a comprehensive admin panel for managing the store's inventory and processing orders. It allows administrators to easily add, update, and remove products, as well as handle customer orders efficiently. This dual-application setup ensures a smooth and efficient experience for both customers and store managers. You can explore the admin panel project in more detail here.
+The [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin) application, also built with Next.js, provides a comprehensive admin panel for managing the store's inventory and processing orders. It allows administrators to easily add, update, and remove products, as well as handle customer orders efficiently. This dual-application setup ensures a smooth and efficient experience for both customers and store managers. You can explore the admin panel project in more detail [here](https://github.com/Willi0t/ecommerce-admin).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -55,10 +54,29 @@ The E-commerce Admin application, also built with Next.js, provides a comprehens
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
--   [![Next][Next.js]][Next-url]
--   [![Laravel][Laravel.com]][Laravel-url]
--   [![Bootstrap][Bootstrap.com]][Bootstrap-url]
--   [![JQuery][JQuery.com]][JQuery-url]
+
+<a href="https://nextjs.org" target="_blank">
+  <img src="https://img.shields.io/badge/nextjs-white?logo=nextdotjs&color=%2341444B" alt="Next.js Badge" style="width: auto; height: 30px;">
+</a>
+
+</br>
+
+<a href="https://stripe.com" target="_blank">
+  <img src="https://img.shields.io/badge/stripe-white?logo=stripe&color=%23bae1ff" alt="Stripe Badge" style="width: auto; height: 30px;">
+</a>
+
+</br>
+
+<a href="https://www.mongodb.com" target="_blank">
+  <img src="https://img.shields.io/badge/MongoDB-white?logo=mongodb&color=%23a8dea0" alt="MongoDB Badge" style="width: auto; height: 30px;">
+</a>
+
+</br>
+
+<a href="https://styled-components.com" target="_blank">
+  <img src="https://img.shields.io/badge/Styled%20Components-white?logo=styledcomponents&color=%23ffdfba" alt="Styled Components Badge" style="width: auto; height: 30px;">
+</a>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
