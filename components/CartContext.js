@@ -39,7 +39,15 @@ export function CartContextProvider({ children }) {
     }
 
     const removeProduct = (productId) => {
-        setCartProducts((prev) => prev.filter((id) => id !== productId));
+        setCartProducts((prev) => {
+            const index = prev.indexOf(productId);
+            if (index !== -1) {
+                const updatedCart = [...prev];
+                updatedCart.splice(index, 1);
+                return updatedCart;
+            }
+            return prev;
+        });
     };
 
     function clearCart() {

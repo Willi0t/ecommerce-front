@@ -1,7 +1,9 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
+    "compilerOptions": {
+        "baseUrl": ".", // Adding baseUrl to set the root of the project
+        "paths": {
+            "@/*": ["./*"], // Existing path alias
+            "@/lib/*": ["lib/*"] // New path alias for the lib directory
+        }
     }
-  }
 }
