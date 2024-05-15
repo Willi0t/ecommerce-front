@@ -132,7 +132,8 @@ const Cart = () => {
     }
 
     const latestOrder = orders[0] || {}; // Assuming the latest order is the first in the array
-    const firstName = latestOrder?.name.split(" ")[0];
+    const firstName =
+        latestOrder && latestOrder.name ? latestOrder.name.split(" ")[0] : null;
 
     console.log(orders, "orders");
 
