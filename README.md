@@ -22,9 +22,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -32,32 +29,57 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## About The Project!
+![e-commerce-snippet](https://github.com/Willi0t/ecommerce-front/assets/113394429/33ca9fba-046e-4be2-b3a0-985abffa6bce)
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-This e-commerce project consists of two separate applications: E-commerce Front and E-commerce Admin. The store offers a simplified tech shop experience, featuring a variety of merchandise including phones, tablets, and laptops. The front end of the store is built using Next.js and showcases products with a user-friendly interface, utilizing Styled Components to demonstrate different styling approaches. The store includes a fully functional payment system powered by Stripe, ensuring secure and seamless transactions.
+This e-commerce project consists of two separate applications: [E-commerce Front](https://github.com/Willi0t/ecommerce-front) and [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin). The store offers a simplified tech shop experience, featuring a variety of merchandise including phones, tablets, and laptops. The front end of the store is built using Next.js and showcases products with a user-friendly interface, utilizing Styled Components to demonstrate different styling approaches. The store includes a fully functional payment system powered by Stripe, ensuring secure and seamless transactions.
 
 When testing the payment and order system, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
 
-Use a valid future date, such as 12/34.
-Use any three-digit CVC (four digits for American Express cards).
-Use any value you like for other form fields
+- Use a valid future date, such as 12/34.
+- Use any three-digit CVC (four digits for American Express cards).
+- Use any value you like for other form fields.
 
-https://docs.stripe.com/testing
+[Stripe Testing Documentation](https://docs.stripe.com/testing)
 
-The E-commerce Admin application, also built with Next.js, provides a comprehensive admin panel for managing the store's inventory and processing orders. It allows administrators to easily add, update, and remove products, as well as handle customer orders efficiently. This dual-application setup ensures a smooth and efficient experience for both customers and store managers. You can explore the admin panel project in more detail here.
+The [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin) application, also built with Next.js, provides a comprehensive admin panel for managing the store's inventory and processing orders. It allows administrators to easily add, update, and remove products, as well as handle customer orders efficiently. This dual-application setup ensures a smooth and efficient experience for both customers and store managers. You can explore the admin panel project in more detail [here](https://github.com/Willi0t/ecommerce-admin).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+<a href="https://nextjs.org" target="_blank">
+  <img src="https://img.shields.io/badge/nextjs-white?logo=nextdotjs&color=%2341444B" alt="Next.js Badge" style="width: auto; height: 30px;">
+</a>
 
--   [![Next][Next.js]][Next-url]
--   [![Laravel][Laravel.com]][Laravel-url]
--   [![Bootstrap][Bootstrap.com]][Bootstrap-url]
--   [![JQuery][JQuery.com]][JQuery-url]
+I chose Next.js for this project because it’s a powerful framework for React that brings a lot to the table. First off, it offers server-side rendering and static site generation, which means our web pages load faster and perform better in search engine rankings.Additionally, Next.js simplifies complex tasks like routing and API handling
+
+
+</br>
+
+<a href="https://stripe.com" target="_blank">
+  <img src="https://img.shields.io/badge/stripe-white?logo=stripe&color=%23bae1ff" alt="Stripe Badge" style="width: auto; height: 30px;">
+</a>
+
+For handling payments, I went with Stripe. It’s known for its security and reliability, which is essential for managing transactions. Integrating Stripe is straightforward thanks to its well-documented API. It supports a wide range of payment methods and currencies, making it versatile for different users. Whether we’re dealing with small or large transactions, Stripe scales effortlessly, ensuring we can handle any volume of payments smoothly.
+
+</br>
+
+<a href="https://www.mongodb.com" target="_blank">
+  <img src="https://img.shields.io/badge/MongoDB-white?logo=mongodb&color=%23a8dea0" alt="MongoDB Badge" style="width: auto; height: 30px;">
+</a>
+
+When it came to choosing a database, MongoDB was the clear choice. Its schema-less design means we can iterate quickly and adapt our data model as needed without a lot of hassle. MongoDB excels at handling large amounts of data and traffic, which is great for scalability. It’s also very developer-friendly, with simple queries and efficient data retrieval. This means we can focus more on building features rather than managing database constraints.
+
+</br>
+
+<a href="https://styled-components.com" target="_blank">
+  <img src="https://img.shields.io/badge/Styled%20Components-white?logo=styledcomponents&color=%23ffdfba" alt="Styled Components Badge" style="width: auto; height: 30px;">
+</a>
+
+For styling, I opted for Styled Components. This library lets us write CSS directly within our JavaScript, making it easy to scope styles to individual components. This approach keeps our styling modular and reusable, which is great for maintaining the codebase. Styled Components also support theming and dynamic styling, allowing us to create a more cohesive and adaptable design system. The developer experience is fantastic too, with features like auto-completion and syntax highlighting in modern IDEs.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,83 +129,48 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
+<!-- Usage -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To use the Application you simply add any of the products on display to the cart. in the cart page you can the modify your order to add more or less of the same products. when you are happy with your order fill in any order information on the right. When testing the payment and order system, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- Use a valid future date, such as 12/34.
+- Use any three-digit CVC (four digits for American Express cards).
+- Use any value you like for other form fields.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
--   [x] Add Changelog
--   [x] Add back to top links
--   [ ] Add Additional Templates w/ Examples
--   [ ] Add "components" document to easily copy & paste sections of the readme
--   [ ] Multi-language Support
-    -   [ ] Chinese
-    -   [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Stripe Testing Documentation](https://docs.stripe.com/testing)
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+William Sinclair's social media & contact
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+<a href="https://www.linkedin.com/in/william-sinclair-2bab18153/" target="_blank">
+  <img src="https://img.shields.io/badge/linked%20in-white?logo=linkedin&color=%230762C8" alt="LinkedIn Badge" style="width: auto; height: 35px;">
+</a>
+<a href="mailto:William.sinclair92@gmail.com" target="_blank">
+  <img src="https://img.shields.io/badge/Gmail-white?logo=gmail&color=%23e87066" alt="Gmail Badge" style="width: auto; height: 35px;">
+</a>
+<a href="https://github.com/Willi0t" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-white?logo=github&color=%2341444B" alt="GitHub Badge" style="width: auto; height: 35px;">
+</a>
+<a href="https://www.facebook.com/the.rune.is.on.fire/" target="_blank">
+  <img src="https://img.shields.io/badge/facebook-white?logo=facebook&color=%233b5998" alt="Facebook Badge" style="width: auto; height: 35px;">
+</a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
--   [Choose an Open Source License](https://choosealicense.com)
--   [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
--   [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
--   [Malven's Grid Cheatsheet](https://grid.malven.co/)
--   [Img Shields](https://shields.io)
--   [GitHub Pages](https://pages.github.com)
--   [Font Awesome](https://fontawesome.com)
--   [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+</br>
+</br>
+
+
+
+
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
