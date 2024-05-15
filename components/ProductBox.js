@@ -5,7 +5,6 @@ import Link from "next/link";
 import { CartContext } from "./CartContext";
 
 const ProductWrapper = styled.div`
-    // top, right, bottom, left
     margin: 20px 0 0 0;
 `;
 
@@ -20,7 +19,6 @@ const ProductContainer = styled(Link)`
     border-radius: 10px;
     img {
         max-width: 100%;
-        //height - padding
         max-height: calc(120px - 20px);
     }
 `;

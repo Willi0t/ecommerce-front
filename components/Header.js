@@ -25,7 +25,6 @@ const NavLink = styled(Link)`
     display: block;
     color: #aaa;
     text-decoration: none;
-    /* padding: 5px; */
 `;
 
 const StyledNav = styled.nav`
@@ -50,7 +49,7 @@ const StyledNav = styled.nav`
         position: static;
         transform: none;
         backdrop-filter: none;
-        background-color: transparent; // Remove effect for larger screens
+        background-color: transparent;
     }
 `;
 

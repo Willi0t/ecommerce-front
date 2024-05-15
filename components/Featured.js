@@ -40,7 +40,6 @@ const CulumnsWrapper = styled.div`
 const ButtonsWrapper = styled.div`
     display: flex;
     gap: 10px;
-    // top, right, bottom, left
     margin: 25px 0 0 0;
 `;
 

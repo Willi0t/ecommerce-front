@@ -1,5 +1,5 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { buffer } from "micro"; // Ensure 'micro' is installed and imported for buffer
+import { buffer } from "micro";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 import { Order } from "@/models/Order";
 
@@ -14,21 +14,18 @@ const handler = async (req, res) => {
     let event;
 
     try {
-        // Correctly use await buffer(req) here and make sure to convert it into a raw string for Stripe
         const reqBuffer = await buffer(req);
-        // Now, use reqBuffer.toString('utf8') to ensure the raw body is in the correct format
         event = stripe.webhooks.constructEvent(
             reqBuffer.toString("utf8"),
             sig,
             endpointSecret
         );
     } catch (err) {
-        console.log(err); // Log the error for debugging
+        console.log(err);
         res.status(400).send(`Webhook Error: ${err.message}`);
         return;
     }
 
-    // Handle the event
     switch (event.type) {
         case "checkout.session.completed":
             const data = event.data.object;

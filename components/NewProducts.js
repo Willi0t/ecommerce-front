@@ -8,7 +8,6 @@ const Title = styled.h2`
     font-weight: normal;
     margin: 0;
     font-size: 2rem;
-    //top right bottom left
     margin: 20px 0 0 0;
 `;
 

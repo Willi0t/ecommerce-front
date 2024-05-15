@@ -10,7 +10,6 @@ export function CartContextProvider({ children }) {
 
     const [cartProducts, setCartProducts] = useState([]);
 
-    // Load initial cart from localStorage only on client-side
     useEffect(() => {
         try {
             const localCart = ls?.getItem("cart");
