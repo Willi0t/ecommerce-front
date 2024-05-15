@@ -150,18 +150,12 @@ William Sinclair's social media & contact
 <a href="https://www.linkedin.com/in/william-sinclair-2bab18153/" target="_blank">
   <img src="https://img.shields.io/badge/linked%20in-white?logo=linkedin&color=%230762C8" alt="LinkedIn Badge" style="width: auto; height: 35px;">
 </a>
-</br>
-</br>
 <a href="mailto:William.sinclair92@gmail.com" target="_blank">
   <img src="https://img.shields.io/badge/Gmail-white?logo=gmail&color=%23e87066" alt="Gmail Badge" style="width: auto; height: 35px;">
 </a>
-</br>
-</br>
 <a href="https://github.com/Willi0t" target="_blank">
   <img src="https://img.shields.io/badge/GitHub-white?logo=github&color=%2341444B" alt="GitHub Badge" style="width: auto; height: 35px;">
 </a>
-</br>
-</br>
 <a href="https://www.facebook.com/the.rune.is.on.fire/" target="_blank">
   <img src="https://img.shields.io/badge/facebook-white?logo=facebook&color=%233b5998" alt="Facebook Badge" style="width: auto; height: 35px;">
 </a>
