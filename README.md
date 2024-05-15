@@ -22,9 +22,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -50,7 +47,7 @@ The [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin) application, 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 <a href="https://nextjs.org" target="_blank">
   <img src="https://img.shields.io/badge/nextjs-white?logo=nextdotjs&color=%2341444B" alt="Next.js Badge" style="width: auto; height: 30px;">
@@ -132,62 +129,48 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
+<!-- Usage -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To use the Application you simply add any of the products on display to the cart. in the cart page you can the modify your order to add more or less of the same products. when you are happy with your order fill in any order information on the right. When testing the payment and order system, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- Use a valid future date, such as 12/34.
+- Use any three-digit CVC (four digits for American Express cards).
+- Use any value you like for other form fields.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
--   [x] Add Changelog
--   [x] Add back to top links
--   [ ] Add Additional Templates w/ Examples
--   [ ] Add "components" document to easily copy & paste sections of the readme
--   [ ] Multi-language Support
-    -   [ ] Chinese
-    -   [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Stripe Testing Documentation](https://docs.stripe.com/testing)
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+William Sinclair's social media & contact
+
+<a href="https://www.linkedin.com/in/william-sinclair-2bab18153/" target="_blank">
+  <img src="https://img.shields.io/badge/linked%20in-white?logo=linkedin&color=%230762C8" alt="LinkedIn Badge" style="width: auto; height: 35px;">
+</a>
+</br>
+</br>
+<a href="mailto:William.sinclair92@gmail.com" target="_blank">
+  <img src="https://img.shields.io/badge/Gmail-white?logo=gmail&color=%23e87066" alt="Gmail Badge" style="width: auto; height: 35px;">
+</a>
+</br>
+</br>
+<a href="https://github.com/Willi0t" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-white?logo=github&color=%2341444B" alt="GitHub Badge" style="width: auto; height: 35px;">
+</a>
+</br>
+</br>
+<a href="https://www.facebook.com/the.rune.is.on.fire/" target="_blank">
+  <img src="https://img.shields.io/badge/facebook-white?logo=facebook&color=%233b5998" alt="Facebook Badge" style="width: auto; height: 35px;">
+</a>
+
+
+
+
+
+
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
