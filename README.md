@@ -21,7 +21,8 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project!
-![e-commerce-snippet](https://github.com/Willi0t/ecommerce-front/assets/113394429/33ca9fba-046e-4be2-b3a0-985abffa6bce)
+![image](https://github.com/Willi0t/ecommerce-front/assets/113394429/c00152f2-36eb-4524-8c68-88c245e96265)
+
 
 This e-commerce project consists of two separate applications: [E-commerce Front](https://github.com/Willi0t/ecommerce-front) and [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin). The store offers a simplified tech shop experience, featuring a variety of merchandise including phones, tablets, and laptops. The front end of the store is built using Next.js and showcases products with a user-friendly interface, utilizing Styled Components to demonstrate different styling approaches. The store includes a fully functional payment system powered by Stripe, ensuring secure and seamless transactions.
 
