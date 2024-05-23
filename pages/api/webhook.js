@@ -11,10 +11,12 @@ export default async function handler(req, res) {
     const sig = req.headers["stripe-signature"];
 
     try {
-        const reqBuffer = await buffer(req);
+        // Parse the raw request body
+        const buf = await buffer(req);
+        const reqBody = buf.toString();
 
         const event = stripe.webhooks.constructEvent(
-            reqBuffer, // Pass the raw request body
+            reqBody,
             sig,
             endpointSecret
         );
