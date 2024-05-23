@@ -13,6 +13,9 @@ const handler = async (req, res) => {
     // Log the raw request body
     console.log("Raw Request Body:", req.body);
 
+    // Log the request headers
+    console.log("Request Headers:", req.headers);
+
     const sig = req.headers["stripe-signature"];
 
     let event;
@@ -54,7 +57,5 @@ const handler = async (req, res) => {
 
     res.status(200).send("ok");
 };
-
-export default handler;
 
 export const config = { api: { bodyParser: false } };
