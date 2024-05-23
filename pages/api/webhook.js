@@ -32,6 +32,16 @@ export default async function handler(req, res) {
 
         console.log("Constructed event:", event);
 
+        // Compare Signatures
+        const calculatedSig = stripe.webhooks.generateTestHeaderString({
+            payload: buf.toString(),
+            secret: endpointSecret,
+        });
+
+        if (calculatedSig !== sig) {
+            throw new Error("Signatures do not match");
+        }
+
         // Handle the event
         switch (event.type) {
             case "checkout.session.completed":
