@@ -1,45 +1,28 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { buffer } from "micro";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
+import { buffer } from "micro";
 import { Order } from "@/models/Order";
 
-// for local testing
-// stripe CLI KEY: humor-favour-excite-agile
-//stripe account-ID: acct_1Ovzrp083Ddl5GGm
-// const endpointSecret = process.env.STRIPE_SECRET;
 const endpointSecret = process.env.ENDPOINT_SECRET;
 
-const handler = async (req, res) => {
+export default async function handler(req, res) {
     await mongooseConnect();
-
-    // Log the raw request body
-    console.log("Raw Request:", req);
-
-    // Log the request headers
-    console.log("Request Headers:", req.headers);
-
     const sig = req.headers["stripe-signature"];
 
     let event;
 
     try {
-        const reqBuffer = await buffer(req);
-        const payload = reqBuffer.toString("utf8").replace(/\n|\+/g, "");
-
-        // Log the signature
-        console.log("Signature:", sig);
-        // Log the parsed request body
-        console.log("Parsed Request Body:", reqBuffer.toString("utf8"));
-
-        // Construct the event
-        event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(
+            await buffer(req),
+            sig,
+            endpointSecret
+        );
     } catch (err) {
-        // Log any errors that occur during signature verification
-        console.error("Signature Verification Error:", err);
         res.status(400).send(`Webhook Error: ${err.message}`);
         return;
     }
 
+    // Handle the event
     switch (event.type) {
         case "checkout.session.completed":
             const data = event.data.object;
@@ -56,8 +39,8 @@ const handler = async (req, res) => {
     }
 
     res.status(200).send("ok");
+}
+
+export const config = {
+    api: { bodyParser: false },
 };
-
-export default handler;
-
-export const config = { api: { bodyParser: false } };
