@@ -4,8 +4,13 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 import { Order } from "@/models/Order";
 require("dotenv").config();
 
-// Use dotenv to load environment variables
-const endpointSecret = process.env.STRIPE_SECRET;
+// for local testing
+// stripe CLI KEY: humor-favour-excite-agile
+//stripe account-ID: acct_1Ovzrp083Ddl5GGm
+const endpointSecret =
+    "whsec_2c323ddb48369c6610d7294e70e680d8cd3ab467c43b085792dce1fd590ed835";
+
+// const endpointSecret = process.env.STRIPE_SECRET;
 
 const handler = async (req, res) => {
     await mongooseConnect();
@@ -57,5 +62,7 @@ const handler = async (req, res) => {
 
     res.status(200).send("ok");
 };
+
+export default handler;
 
 export const config = { api: { bodyParser: false } };
