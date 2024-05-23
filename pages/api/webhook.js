@@ -24,17 +24,15 @@ const handler = async (req, res) => {
 
     try {
         const reqBuffer = await buffer(req);
+        const payload = reqBuffer.toString("utf8").replace(/\n|\+/g, "");
+
         // Log the signature
         console.log("Signature:", sig);
         // Log the parsed request body
         console.log("Parsed Request Body:", reqBuffer.toString("utf8"));
 
         // Construct the event
-        event = stripe.webhooks.constructEvent(
-            reqBuffer.toString("utf8"),
-            sig,
-            endpointSecret
-        );
+        event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
     } catch (err) {
         // Log any errors that occur during signature verification
         console.error("Signature Verification Error:", err);
