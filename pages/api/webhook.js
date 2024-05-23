@@ -13,7 +13,7 @@ const handler = async (req, res) => {
     await mongooseConnect();
 
     // Log the raw request body
-    console.log("Raw Request Body:", req.body);
+    console.log("Raw Request:", req);
 
     // Log the request headers
     console.log("Request Headers:", req.headers);
