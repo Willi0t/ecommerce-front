@@ -17,28 +17,19 @@ export default async function handler(req, res) {
 
     try {
         // Retrieve the raw request body
-        const buf = await getRawBody(req);
+        const buf = await getRawBody(req, {
+            length: req.headers["content-length"],
+            limit: "1mb",
+            encoding: "utf8",
+        });
 
         console.log("Received request. Signature:", sig);
-        console.log("Raw body:", buf.toString());
+        console.log("Raw body:", buf);
 
         // Construct the event
         const event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
 
         console.log("Constructed event:", event);
-
-        // Compare Signatures (log both for comparison)
-        const calculatedSig = stripe.webhooks.generateTestHeaderString({
-            payload: buf.toString(),
-            secret: endpointSecret,
-        });
-
-        console.log("Calculated signature:", calculatedSig);
-        console.log("Received signature:", sig);
-
-        if (calculatedSig !== sig) {
-            throw new Error("Signatures do not match");
-        }
 
         // Handle the event
         switch (event.type) {
