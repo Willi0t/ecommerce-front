@@ -7,8 +7,7 @@ require("dotenv").config();
 // for local testing
 // stripe CLI KEY: humor-favour-excite-agile
 //stripe account-ID: acct_1Ovzrp083Ddl5GGm
-const endpointSecret =
-    "whsec_2c323ddb48369c6610d7294e70e680d8cd3ab467c43b085792dce1fd590ed835";
+const endpointSecret = "we_1PGnhi083Ddl5GGmnm1mMiqd";
 
 // const endpointSecret = process.env.STRIPE_SECRET;
 
