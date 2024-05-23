@@ -1,5 +1,4 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { buffer } from "micro";
 import Stripe from "stripe";
 import getRawBody from "raw-body";
 import { Order } from "@/models/Order";
@@ -21,21 +20,22 @@ export default async function handler(req, res) {
         const buf = await getRawBody(req);
 
         console.log("Received request. Signature:", sig);
+        console.log("Raw body:", buf.toString());
 
         // Construct the event
         const event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
 
         console.log("Constructed event:", event);
 
-        // Calculate the expected signature
+        // Compare Signatures (log both for comparison)
         const calculatedSig = stripe.webhooks.generateTestHeaderString({
             payload: buf.toString(),
             secret: endpointSecret,
         });
 
         console.log("Calculated signature:", calculatedSig);
+        console.log("Received signature:", sig);
 
-        // Compare Signatures
         if (calculatedSig !== sig) {
             throw new Error("Signatures do not match");
         }
