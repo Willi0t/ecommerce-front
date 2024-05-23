@@ -1,8 +1,11 @@
 import { mongooseConnect } from "@/lib/mongoose";
+import { parse } from "url";
 import { buffer } from "micro";
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
+import Stripe from "stripe";
+import getRawBody from "raw-body";
 import { Order } from "@/models/Order";
 
+const stripe = new Stripe(process.env.STRIPE_SECRET);
 const endpointSecret = process.env.ENDPOINT_SECRET;
 
 export default async function handler(req, res) {
@@ -11,15 +14,23 @@ export default async function handler(req, res) {
     const sig = req.headers["stripe-signature"];
 
     try {
-        // Parse the raw request body
-        const buf = await buffer(req);
-        const reqBody = buf.toString();
+        // Retrieve the raw request body
+        const buf = await getRawBody(req);
 
+        // Parse the URL to get the rawPath
+        const { pathname: rawPath } = parse(req.url);
+
+        console.log("Received request. Signature:", sig);
+
+        // Construct the event
         const event = stripe.webhooks.constructEvent(
-            reqBody,
+            buf,
             sig,
-            endpointSecret
+            endpointSecret,
+            rawPath
         );
+
+        console.log("Constructed event:", event);
 
         // Handle the event
         switch (event.type) {
@@ -31,6 +42,7 @@ export default async function handler(req, res) {
                     await Order.findByIdAndUpdate(orderId, {
                         paid: true,
                     });
+                    console.log("Order updated successfully:", orderId);
                 }
                 break;
             default:
@@ -39,6 +51,7 @@ export default async function handler(req, res) {
 
         res.status(200).send("ok");
     } catch (err) {
+        console.error("Webhook Error:", err);
         res.status(400).send(`Webhook Error: ${err.message}`);
     }
 }
