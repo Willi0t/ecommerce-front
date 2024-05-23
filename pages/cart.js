@@ -135,8 +135,6 @@ const Cart = () => {
     const firstName =
         latestOrder && latestOrder.name ? latestOrder.name.split(" ")[0] : null;
 
-    console.log(orders, "orders");
-
     if (isSuccess) {
         return (
             <>
