@@ -2,14 +2,12 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { buffer } from "micro";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 import { Order } from "@/models/Order";
-require("dotenv").config();
 
 // for local testing
 // stripe CLI KEY: humor-favour-excite-agile
 //stripe account-ID: acct_1Ovzrp083Ddl5GGm
-const endpointSecret = "we_1PGnhi083Ddl5GGmnm1mMiqd";
-
 // const endpointSecret = process.env.STRIPE_SECRET;
+const endpointSecret = process.env.ENDPOINT_SECRET;
 
 const handler = async (req, res) => {
     await mongooseConnect();
