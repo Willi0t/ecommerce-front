@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         });
 
         console.log("Received request. Signature:", sig);
-        console.log("Raw body:", buf);
+        console.log("Raw body:", buf.toString());
 
         // Construct the event
         const event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
