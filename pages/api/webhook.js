@@ -1,9 +1,9 @@
 import { mongooseConnect } from "@/lib/mongoose";
 import Stripe from "stripe";
-import getRawBody from "raw-body";
+import { buffer } from "micro";
 import { Order } from "@/models/Order";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET);
+const stripe = new Stripe(process.env.STRIPE_SK);
 const endpointSecret = process.env.ENDPOINT_SECRET;
 
 export const config = {
@@ -12,22 +12,16 @@ export const config = {
 
 export default async function handler(req, res) {
     await mongooseConnect();
-
     const sig = req.headers["stripe-signature"];
 
-    try {
-        // Retrieve the raw request body
-        const buf = await getRawBody(req, {
-            length: req.headers["content-length"],
-            limit: "1mb",
-            encoding: "utf8",
-        });
+    let event;
 
+    try {
+        const buf = await buffer(req);
         console.log("Received request. Signature:", sig);
         console.log("Raw body:", buf.toString());
 
-        // Construct the event
-        const event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(buf, sig, endpointSecret);
 
         console.log("Constructed event:", event);
 
