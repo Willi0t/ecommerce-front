@@ -1,13 +1,14 @@
 import { mongooseConnect } from "@/lib/mongoose";
-const stripe = require("stripe")(process.env.STRIPE_SK);
 import { buffer } from "micro";
 import { Order } from "@/models/Order";
+const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 const endpointSecret =
     "whsec_2c323ddb48369c6610d7294e70e680d8cd3ab467c43b085792dce1fd590ed835";
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
     await mongooseConnect();
+
     const sig = req.headers["stripe-signature"];
 
     let event;
@@ -40,11 +41,10 @@ export default async function handler(req, res) {
     }
 
     res.status(200).send("ok");
-}
+};
+
+export default handler;
 
 export const config = {
     api: { bodyParser: false },
 };
-
-//wonder-clean-awards-geeky
-//acct_1Ovzrp083Ddl5GGm

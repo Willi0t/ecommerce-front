@@ -39,7 +39,7 @@ const StyledNav = styled.nav`
     background-color: rgba(34, 34, 34, 0.85);
     backdrop-filter: blur(10px);
     transform: translateX(
-        ${(props) => (props.mobileNavigationActive ? "0" : "-100%")}
+        ${(props) => (props.$mobileNavigationActive ? "0" : "-100%")}
     );
     transition: transform 0.3s ease-in-out;
 
@@ -74,7 +74,7 @@ function Header() {
             <Center>
                 <Wrapper>
                     <Logo href={"/"}>Ecommerce</Logo>
-                    <StyledNav mobileNavigationActive={mobileNavigationActive}>
+                    <StyledNav $mobileNavigationActive={mobileNavigationActive}>
                         <NavLink href={"/"}>Home</NavLink>
                         <NavLink href={"/products"}>All Products</NavLink>
                         <NavLink href={"/categories"}>Categories</NavLink>
