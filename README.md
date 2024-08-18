@@ -36,7 +36,10 @@ When testing the payment and order system, use a card number, such as 4242 4242 
 
 The [E-commerce Admin](https://github.com/Willi0t/ecommerce-admin) application, also built with Next.js, provides a comprehensive admin panel for managing the store's inventory and processing orders. It allows administrators to easily add, update, and remove products, as well as handle customer orders efficiently. This dual-application setup ensures a smooth and efficient experience for both customers and store managers. You can explore the admin panel project in more detail [here](https://github.com/Willi0t/ecommerce-admin).
 
-> **⚠️ Note:** The categories page and the account page is currently in development and is not yet functional .
+> **⚠️ Note:** The categories page and the account page are currently in development and are not yet functional .
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<p>[Demo Link](https://e-commerce-front-001.netlify.app)</p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
